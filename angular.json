@@ -8,7 +8,7 @@
       "schematics": {},
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "FormApp"
+    }
+  },
+  "defaultProject": "FormApp",
+  "cli": {
+    "analytics": "34271001-d358-40f9-9994-9aaa4013c6cf"
+  }
 }

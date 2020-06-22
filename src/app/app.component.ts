@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Inject} from '@angular/core';
+import {INavigationService, NAVIGATION_SERVICE} from './services/navigation.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'FormApp';
+
+  constructor(@Inject(NAVIGATION_SERVICE) private navService: INavigationService) {
+  }
+
+  goToReactive() {
+    this.navService.openReactive();
+  }
+
+  goToTemplate() {
+    this.navService.openTemplate();
+  }
 }

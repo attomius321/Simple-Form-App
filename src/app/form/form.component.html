@@ -1,0 +1,55 @@
+<h4>Reactive forms</h4>
+<div class="card-deck">
+<div class="card">
+  <div class="card-content">
+    <form [formGroup]="customerFormGroup" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col s6">
+          <label>First name</label>
+          <input formControlName="firstName"/>
+          <div class="error" *ngIf="customerFormGroup.get('firstName').invalid && (customerFormGroup.get('firstName').dirty || customerFormGroup.get('firstName').touched)">
+            <label *ngIf="customerFormGroup.get('firstName').errors.required">First name required</label>
+            <label *ngIf="customerFormGroup.get('firstName').errors.forbiddenName">Name forbidden</label>
+          </div>
+        </div>
+
+        <div class="col s6">
+          <label>Last name</label>
+          <input formControlName="lastName"/>
+
+          <div class="error" *ngIf="customerFormGroup.get('lastName').invalid && (customerFormGroup.get('lastName').touched || customerFormGroup.get('lastName').dirty)">
+            <label *ngIf="customerFormGroup.get('lastName').errors.required">Last name required</label>
+          </div>
+        </div>
+
+        <div class="col s6">
+          <label>Email</label>
+          <input type="email" [formControl]="emailFormControl"/>
+          <div class="error" *ngIf="emailFormControl.invalid && (emailFormControl.dirty || emailFormControl.touched)">
+            <label *ngIf="emailFormControl.errors.required">Email required</label>
+            <label *ngIf="emailFormControl.errors.email">Email not valid</label>
+          </div>
+        </div>
+
+        <div class="col s6">
+          <label>Phone</label>
+          <input formControlName="phone"/>
+        </div>
+      </div>
+
+      <h6>Address</h6>
+
+      <address formControlName="address"></address>
+
+      <div class="col s12">
+        <div class="error" *ngIf="addressFormGroup.invalid && (addressFormGroup.touched || addressFormGroup.dirty)">
+          <label>Invalid Address</label>
+        </div>
+      </div>
+      <div class="right-align">
+        <button class="btn" type="submit">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
